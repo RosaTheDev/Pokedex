@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-import PokeAPI from './APICalls/PokemonAPI';
 import './App.css';
+import PokeAPI from './APICalls/PokemonAPI';
+import NavComponent from './Components/NavComponent/NavComponent';
+
 
 
 class App extends Component  {
@@ -18,7 +20,9 @@ class App extends Component  {
   render() {
     return(
     <div className="App">
+        <NavComponent />
       <header className="App-header">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/rg6CiPI6h2g?autoplay=1" title="YouTube video player"  ></iframe>
         <p>
           Hello World
         </p>
