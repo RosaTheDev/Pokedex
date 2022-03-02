@@ -1,0 +1,19 @@
+.nav-container {
+  background-color: #FFDE00;
+  color: #000000; 
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pokeball {
+    height: 8vh;
+    width: 9vh;
+}
+
+.pokedex {
+  height: 8vh;
+  width: 8vh;
+}
