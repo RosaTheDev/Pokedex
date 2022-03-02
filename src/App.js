@@ -30,8 +30,6 @@ class App extends Component  {
   favoritePokemon = (id) => {
     const pokemon = this.state.pokemons.find((pokemon, index) => index === id)
     this.setState({...this.state, favoritePokemon: pokemon})
-    console.log(pokemon)
-    console.log('updated state', this.state)
     //grab from state using .find
     // setState(...fav, pokeid)
     //update state to favorite pokemon
@@ -51,6 +49,20 @@ class App extends Component  {
       </header>
     </div>
     );
+
+    // <Route exact path='/:id' render={({ match }) => {
+    //   const findMovie = this.state.movies.find((movie) => movie.id === parseInt(match.params.id))
+    //   if (findMovie) {
+    //     return (
+    //       <SingleMovie id={match.params.id} />
+    //     )
+    //   } else if (findMovie === undefined) {
+    //     return (
+    //       <LolNotFound />
+    //     )
+    //   }
+    // }}
+    // />
   }
 }
 
