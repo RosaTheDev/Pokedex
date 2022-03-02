@@ -1,6 +1,6 @@
 import React from "react";
 import './NavComponent.css'
-
+import { NavLink } from "react-router-dom";
 const NavComponent = () => {
   
   return (
@@ -12,10 +12,10 @@ const NavComponent = () => {
         <button>My Pokemon</button>
         </div>
 
-        <div className="pokedex-button">
+        <NavLink className="pokedex-button" to={'/pokemon'}>
         <img className="pokedex" src="https://miro.medium.com/max/300/0*NsHVyfpJ2k7ixTAd" alt="Pokedex" />
         <button>View a list of Pokemon</button>
-        </div>
+        </NavLink>
     </div>
   </div>
     )
