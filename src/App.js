@@ -1,13 +1,26 @@
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import PokeAPI from './APICalls/PokemonAPI';
 import './App.css';
 
-function App() {
-  return (
+
+class App extends Component  {
+  constructor() {
+    super()
+    this.state = {
+
+    }
+  }
+
+  componentDidMount() {
+    PokeAPI()
+    .then(data => console.log(data))
+  }
+  render() {
+    return(
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Hello World
         </p>
         <a
           className="App-link"
@@ -19,7 +32,8 @@ function App() {
         </a>
       </header>
     </div>
-  );
+    );
+  }
 }
 
 export default App;
