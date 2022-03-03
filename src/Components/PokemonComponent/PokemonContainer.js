@@ -16,7 +16,7 @@ const PokeContainer = ({pokemons, grabid, pokeball, changeOffset}) => {
           url={pokemon.url}
           />
         </NavLink>
-          <img onClick={() => pokeball(index)} className='pokeball' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/640px-Pok%C3%A9_Ball_icon.svg.png" alt="pokeball" />
+          <img onClick={() => pokeball( pokemon.name)} className='pokeball' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/640px-Pok%C3%A9_Ball_icon.svg.png" alt="pokeball" />
       </div>
     )
   })

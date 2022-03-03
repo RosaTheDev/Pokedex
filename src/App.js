@@ -27,9 +27,20 @@ class App extends Component  {
     this.setState({...this.state, pokemonURL: url})
   }
 
-  favoritePokemon = (id) => {
-    const pokemon = this.state.pokemons.find((pokemon, index) => index === id)
-    this.setState({ ...this.state, favoritePokemon: [...this.state.favoritePokemon, pokemon]})
+  favoritePokemon = (pokename) => {
+
+    console.log(pokename)
+    const findme = this.state.pokemons.find(findmepls => pokename === findmepls.name)
+    console.log(findme)
+    if(!this.state.favoritePokemon.includes(findme)){
+      console.log('does not have it')
+      this.setState({...this.state, favoritePokemon: [...this.state.favoritePokemon, findme]})
+    } else {
+      this.setState({...this.state})
+    }
+
+    // const pokemon = this.state.pokemons.find((pokemon, index) => index === id)
+    // this.setState({ ...this.state, favoritePokemon: [...this.state.favoritePokemon, pokemon]})
     
   }
   
@@ -62,7 +73,7 @@ class App extends Component  {
           <Route exact path='/' render={() => <iframe className='poke-trailer' title="Pokemon Song" width="560" height="315" src="https://www.youtube.com/embed/rg6CiPI6h2g?autoplay=1" ></iframe>} />
           <Route exact path='/pokemon' render={() =>  <PokeContainer pokemons={this.state.pokemons} grabid={this.grabTargetURL} pokeball={this.favoritePokemon} changeOffset={this.changeOffset}/>} />
           <Route exact path='/pokemon/singlePokemon' render={() => <SinglePokemonComponent pokemonInfo={this.state.pokemonInfo} pokemonURL={this.state.pokemonURL}/> } />
-          <Route exact path='/favoritePokemon' render={() => <FavoritePokemon favePoke={this.state.favoritePokemon} grabid={this.grabTargetURL}/>} />
+          <Route exact path='/favoritePokemon' render={() => <FavoritePokemon favePoke={this.state.favoritePokemon}/>} grabid={this.grabTargetURL}/>
         </Switch>
       </header>
     </div>
