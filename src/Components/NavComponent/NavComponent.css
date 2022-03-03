@@ -17,3 +17,7 @@
   height: 8vh;
   width: 8vh;
 }
+
+img, button {
+  cursor: pointer;
+}

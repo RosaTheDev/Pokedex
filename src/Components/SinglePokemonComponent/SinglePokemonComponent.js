@@ -2,8 +2,8 @@ import { render } from "@testing-library/react";
 import React, { Component } from "react";
 import PokemonCardAPI from "../../APICalls/PokemonCardAPI";
 import PokemonCard from "./PokemonCard/PokemonCard";
-import PokeStats from "./PokemonCard/PokemonSpecsContainer/PokeStats";
-import PokeType from "./PokemonCard/PokemonSpecsContainer/PokeType";
+// import PokeStats from "./PokemonCard/PokemonSpecsContainer/PokeStats";
+// import PokeType from "./PokemonCard/PokemonSpecsContainer/PokeType";
 import './SinglePokemonComponent.css';
 
 class SinglePokemonComponent extends Component {
@@ -32,8 +32,8 @@ class SinglePokemonComponent extends Component {
       return(
         <div>
          <PokemonCard pokeInfo={this.state.pokemonInfo} pokeImage={this.state.pokemonImg} /> 
-         <PokeStats stats={this.state.pokeStats}/>
-         <PokeType pokeType={this.state.pokeType} />
+         {/* <PokeStats stats={this.state.pokeStats}/>
+         <PokeType pokeType={this.state.pokeType} /> */}
 
         </div>
       )
