@@ -5,34 +5,52 @@ import PokeAPI from './APICalls/PokemonAPI';
 import NavComponent from './Components/NavComponent/NavComponent';
 import PokeContainer from './Components/PokemonComponent/PokemonContainer';
 import PokemonCardAPI from './APICalls/PokemonCardAPI';
+import SinglePokeContainer from './Components/SinglePokemonContainer/SinglePokeContainer';
 
 class App extends Component  {
   constructor() {
     super()
     this.state = {
+      offset: 0,
       pokemons:[],
-      favoritePokemon: []
+      favoritePokemon: [],
+      pokemonInfo: []
     }
   }
 
-  componentDidMount() {
-    PokeAPI()
-    .then(data => this.setState({pokemons: data.results}))
-
-   
+  componentDidMount = () => {
+    PokeAPI(this.state.offset)
+    .then(data => this.setState({...this.state, pokemons: [...this.state.pokemons, ...data.results]}))   
+    console.log('pokemon')
   }
 
   grabTargetId = (id) =>  {
     PokemonCardAPI(id)
-    .then(data => console.log(data))
+    .then(data => this.setState({...this.state, pokemonInfo: data}))
   }
 
   favoritePokemon = (id) => {
     const pokemon = this.state.pokemons.find((pokemon, index) => index === id)
-    this.setState({...this.state, favoritePokemon: pokemon})
-    //grab from state using .find
-    // setState(...fav, pokeid)
-    //update state to favorite pokemon
+    this.setState({ ...this.state, favoritePokemon: [...this.state.favoritePokemon, pokemon]})
+    
+  }
+
+  changeOffset = () =>  {
+    console.log(this.state)
+    // let newOffset = this.state.offset + 21
+    this.setState({...this.state, offset: 21})
+    // PokeAPI(this.state.offset)
+  }
+  
+  unFavoritePokemon = (id) => {
+    // unfavoriting
+    //find the fav pokemon from the fav pokemon array and remove it 
+    // and store the new array to a variable name
+    //unfavoritng button needed
+    const unpokemon = this.state.favoritePokemon.splice((id, 1))
+    // same thing in line 34
+    console.log(unpokemon)
+    this.setState({ ...this.state, favoritePokemon: unpokemon })
   }
 
 
@@ -44,7 +62,8 @@ class App extends Component  {
       <header className="App-header">
         <Switch>
           <Route exact path='/' render={() => <iframe className='poke-trailer' title="Pokemon Song" width="560" height="315" src="https://www.youtube.com/embed/rg6CiPI6h2g?autoplay=1" ></iframe>} />
-            <Route exact path='/pokemon' render={() =>  <PokeContainer pokemons={this.state.pokemons} grabid={this.grabTargetId} pokeball={this.favoritePokemon} /> } />
+          <Route exact path='/pokemon' render={() =>  <PokeContainer pokemons={this.state.pokemons} grabid={this.grabTargetId} pokeball={this.favoritePokemon} changeOffset={this.changeOffset}/>} />
+          <Route exact path='/pokemon/singlePokemon' render={() => <SinglePokeContainer pokemonInfo={this.state.pokemonInfo}/>} />
         </Switch>
       </header>
     </div>
