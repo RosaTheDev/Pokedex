@@ -4,6 +4,7 @@ import PokemonCard from './PokemonCard/PokemonCard'
 import { NavLink } from "react-router-dom";
 
 const PokeContainer = ({pokemons, grabid, pokeball, changeOffset}) => {
+  // console.log(pokemons[0])
   const PokemonCards = pokemons.map((pokemon, index) => {
     return(
       <div key={index+1}>
@@ -18,11 +19,13 @@ const PokeContainer = ({pokemons, grabid, pokeball, changeOffset}) => {
     )
   })
   return(
-    <NavLink className="poke-container" to={'/pokemon/singlePokemon'} style={{color: '#FFF', textDecoration: 'none'}}>
+    <div className="poke-container">
       {PokemonCards}
       <button onClick={() => changeOffset()}>add more!</button>
-    </NavLink>
+    </div>
   )
 }
+
+//to={'/pokemon/name'} style={{color: '#FFF', textDecoration: 'none'}}
 
 export default PokeContainer;

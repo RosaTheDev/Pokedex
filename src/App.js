@@ -34,7 +34,7 @@ class App extends Component  {
     this.setState({ ...this.state, favoritePokemon: [...this.state.favoritePokemon, pokemon]})
     
   }
-
+  
   changeOffset = () =>  {
     console.log(this.state)
     // let newOffset = this.state.offset + 21
@@ -52,10 +52,11 @@ class App extends Component  {
     console.log(unpokemon)
     this.setState({ ...this.state, favoritePokemon: unpokemon })
   }
-
-
+  
+  
   render() {
     console.log('this is my state', this.state)
+    console.log('favorite pokemon!', this.state.favoritePokemon)
     return(
     <div className="App">
         <NavComponent />
@@ -63,7 +64,8 @@ class App extends Component  {
         <Switch>
           <Route exact path='/' render={() => <iframe className='poke-trailer' title="Pokemon Song" width="560" height="315" src="https://www.youtube.com/embed/rg6CiPI6h2g?autoplay=1" ></iframe>} />
           <Route exact path='/pokemon' render={() =>  <PokeContainer pokemons={this.state.pokemons} grabid={this.grabTargetId} pokeball={this.favoritePokemon} changeOffset={this.changeOffset}/>} />
-          <Route exact path='/pokemon/singlePokemon' render={() => <SinglePokeContainer pokemonInfo={this.state.pokemonInfo}/>} />
+          {!this.state && <h1>Sorry no pokemon here</h1>}
+          <Route exact path='/pokemon/:id' render={() =>  <SinglePokeContainer pokemonInfo={this.state.pokemonInfo}/>} />
         </Switch>
       </header>
     </div>
