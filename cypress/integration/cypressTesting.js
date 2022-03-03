@@ -21,4 +21,14 @@ describe('Testing User Flows', () => {
     cy.get('.poke-container')
     cy.get(':nth-child(6) > .pokeball').click()
   })
+
+  it('Should view favorited pokemon', () => {
+    cy.get('.pokeball')
+    cy.get('.pokeball-button > button').click()
+    cy.get('.poke-container')
+    cy.get(':nth-child(6) > .pokeball').click()
+    cy.get('.pokedex')
+    cy.get('.pokedex-button > button').click()
+    cy.get('.App-header > div > :nth-child(2)')
+  })
 });
