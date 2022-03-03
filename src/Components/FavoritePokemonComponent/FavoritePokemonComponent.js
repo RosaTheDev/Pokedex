@@ -23,6 +23,7 @@ const FavoritePokemon = ({favePoke, grabid, deletedPoke}) => {
     })
   return(
     <div className="poke-container">
+      {favPokemons.length === 0  && <h1>Theres no pokemon in your pokedex!</h1>}
       {favPokemons}
     </div>
 
