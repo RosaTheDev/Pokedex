@@ -4,7 +4,6 @@ import PokemonDisplays from './PokemonDisplays/PokemonDisplays'
 import { NavLink } from "react-router-dom";
 
 const PokeContainer = ({pokemons, grabid, pokeball, changeOffset}) => {
-  // console.log(pokemons[0])
   const PokemonDisplay = pokemons.map((pokemon, index) => {
     return(
       <div className='pokeContainer' key={index}>

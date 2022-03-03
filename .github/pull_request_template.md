@@ -14,7 +14,7 @@ How was this tested?
 - [ ] open index.html
 - [ ] localhost
 - [ ] terminal
-
+- [ ] Cypress
 Where should the reviewer start - test:
 
 
