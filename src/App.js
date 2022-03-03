@@ -14,19 +14,17 @@ class App extends Component  {
       offset: 0,
       pokemons:[],
       favoritePokemon: [],
-      pokemonInfo: []
+      pokemonURL: []
     }
   }
 
   componentDidMount = () => {
     PokeAPI(this.state.offset)
     .then(data => this.setState({...this.state, pokemons: [...this.state.pokemons, ...data.results]}))   
-    console.log('pokemon')
   }
 
-  grabTargetId = (id) =>  {
-    PokemonCardAPI(id)
-    .then(data => this.setState({...this.state, pokemonInfo: data}))
+  grabTargetURL = (url) =>  {
+    this.setState({...this.state, pokemonURL: url})
   }
 
   favoritePokemon = (id) => {
@@ -55,35 +53,21 @@ class App extends Component  {
   
   
   render() {
-    console.log('this is my state', this.state)
-    console.log('favorite pokemon!', this.state.favoritePokemon)
     return(
     <div className="App">
         <NavComponent />
       <header className="App-header">
         <Switch>
           <Route exact path='/' render={() => <iframe className='poke-trailer' title="Pokemon Song" width="560" height="315" src="https://www.youtube.com/embed/rg6CiPI6h2g?autoplay=1" ></iframe>} />
-          <Route exact path='/pokemon' render={() =>  <PokeContainer pokemons={this.state.pokemons} grabid={this.grabTargetId} pokeball={this.favoritePokemon} changeOffset={this.changeOffset}/>} />
+          <Route exact path='/pokemon' render={() =>  <PokeContainer pokemons={this.state.pokemons} grabid={this.grabTargetURL} pokeball={this.favoritePokemon} changeOffset={this.changeOffset}/>} />
           {!this.state && <h1>Sorry no pokemon here</h1>}
-          <Route exact path='/pokemon/:id' render={() =>  <SinglePokeContainer pokemonInfo={this.state.pokemonInfo}/>} />
+            <Route exact path='/pokemon/singlePokemon' render={() => <SinglePokeContainer pokemonInfo={this.state.pokemonInfo} pokemonURL={this.state.pokemonURL}/> } />
         </Switch>
       </header>
     </div>
     );
 
-    // <Route exact path='/:id' render={({ match }) => {
-    //   const findMovie = this.state.movies.find((movie) => movie.id === parseInt(match.params.id))
-    //   if (findMovie) {
-    //     return (
-    //       <SingleMovie id={match.params.id} />
-    //     )
-    //   } else if (findMovie === undefined) {
-    //     return (
-    //       <LolNotFound />
-    //     )
-    //   }
-    // }}
-    // />
+
   }
 }
 
