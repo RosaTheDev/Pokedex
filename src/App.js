@@ -29,19 +29,16 @@ class App extends Component  {
 
   favoritePokemon = (pokename) => {
 
-    console.log(pokename)
     const findme = this.state.pokemons.find(findmepls => pokename === findmepls.name)
     console.log(findme)
+
+
     if(!this.state.favoritePokemon.includes(findme)){
       console.log('does not have it')
       this.setState({...this.state, favoritePokemon: [...this.state.favoritePokemon, findme]})
     } else {
       this.setState({...this.state})
     }
-
-    // const pokemon = this.state.pokemons.find((pokemon, index) => index === id)
-    // this.setState({ ...this.state, favoritePokemon: [...this.state.favoritePokemon, pokemon]})
-    
   }
   
   changeOffset = () =>  {
@@ -51,20 +48,27 @@ class App extends Component  {
     // PokeAPI(this.state.offset)
   }
   
-  // unFavoritePokemon = (id) => {
-  //   // unfavoriting
-  //   //find the fav pokemon from the fav pokemon array and remove it 
-  //   // and store the new array to a variable name
-  //   //unfavoritng button needed
-  //   const unpokemon = this.state.favoritePokemon.splice((id, 1))
-  //   // same thing in line 34
-  //   console.log(unpokemon)
-  //   this.setState({ ...this.state, favoritePokemon: unpokemon })
-  // }
+  deletePokemon = (pokename) => {
+    console.log(pokename)
+    const findme = this.state.favoritePokemon.find(findmepls => pokename === findmepls.name)
+    console.log(findme)
+    if (this.state.favoritePokemon.includes(findme)) {
+     console.log('I dont wanna play with you anymore')
+      //  this.setState({ ...this.state, favoritePokemon: [...this.state.favoritePokemon, findme] })
+    } else {
+      console.log('oops you dont have that pokemon')
+    //   this.setState({ ...this.state })
+    }
+
+    // unfavoriting
+    //find the fav pokemon from the fav pokemon array and remove it 
+    // and store the new array to a variable name
+    // const unpokemon = this.state.favoritePokemon.splice((id, 1))
+    // this.setState({ ...this.state, favoritePokemon: unpokemon })
+  }
   
   
   render() {
-    console.log(this.state.favoritePokemon)
     return(
     <div className="App">
         <NavComponent />
@@ -72,8 +76,8 @@ class App extends Component  {
         <Switch>
           <Route exact path='/' render={() => <iframe className='poke-trailer' title="Pokemon Song" width="560" height="315" src="https://www.youtube.com/embed/rg6CiPI6h2g?autoplay=1" ></iframe>} />
           <Route exact path='/pokemon' render={() =>  <PokeContainer pokemons={this.state.pokemons} grabid={this.grabTargetURL} pokeball={this.favoritePokemon} changeOffset={this.changeOffset}/>} />
+            <Route exact path='/favoritePokemon' render={() => <FavoritePokemon favePoke={this.state.favoritePokemon} grabid={this.grabTargetURL} deletedPoke={this.deletePokemon}/>} />
           <Route exact path='/pokemon/singlePokemon' render={() => <SinglePokemonComponent pokemonInfo={this.state.pokemonInfo} pokemonURL={this.state.pokemonURL}/> } />
-          <Route exact path='/favoritePokemon' render={() => <FavoritePokemon favePoke={this.state.favoritePokemon}/>} grabid={this.grabTargetURL}/>
         </Switch>
       </header>
     </div>

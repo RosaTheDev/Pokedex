@@ -10,7 +10,7 @@ class SinglePokemonComponent extends Component {
   constructor({pokemonURL}) {
     super()
     this.state = {
-      pokemonInfo: [],
+      pokemonInfo: null,
       pokemonImg: '',
      
     }
