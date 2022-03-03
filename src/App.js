@@ -4,8 +4,7 @@ import './App.css';
 import PokeAPI from './APICalls/PokemonAPI';
 import NavComponent from './Components/NavComponent/NavComponent';
 import PokeContainer from './Components/PokemonComponent/PokemonContainer';
-import PokemonCardAPI from './APICalls/PokemonCardAPI';
-import SinglePokeContainer from './Components/SinglePokemonContainer/SinglePokeContainer';
+import SinglePokeCard from './Components/SinglePokemonCard/SinglePokemonCard';
 
 class App extends Component  {
   constructor() {
@@ -40,16 +39,16 @@ class App extends Component  {
     // PokeAPI(this.state.offset)
   }
   
-  unFavoritePokemon = (id) => {
-    // unfavoriting
-    //find the fav pokemon from the fav pokemon array and remove it 
-    // and store the new array to a variable name
-    //unfavoritng button needed
-    const unpokemon = this.state.favoritePokemon.splice((id, 1))
-    // same thing in line 34
-    console.log(unpokemon)
-    this.setState({ ...this.state, favoritePokemon: unpokemon })
-  }
+  // unFavoritePokemon = (id) => {
+  //   // unfavoriting
+  //   //find the fav pokemon from the fav pokemon array and remove it 
+  //   // and store the new array to a variable name
+  //   //unfavoritng button needed
+  //   const unpokemon = this.state.favoritePokemon.splice((id, 1))
+  //   // same thing in line 34
+  //   console.log(unpokemon)
+  //   this.setState({ ...this.state, favoritePokemon: unpokemon })
+  // }
   
   
   render() {
@@ -61,7 +60,7 @@ class App extends Component  {
           <Route exact path='/' render={() => <iframe className='poke-trailer' title="Pokemon Song" width="560" height="315" src="https://www.youtube.com/embed/rg6CiPI6h2g?autoplay=1" ></iframe>} />
           <Route exact path='/pokemon' render={() =>  <PokeContainer pokemons={this.state.pokemons} grabid={this.grabTargetURL} pokeball={this.favoritePokemon} changeOffset={this.changeOffset}/>} />
           {!this.state && <h1>Sorry no pokemon here</h1>}
-            <Route exact path='/pokemon/singlePokemon' render={() => <SinglePokeContainer pokemonInfo={this.state.pokemonInfo} pokemonURL={this.state.pokemonURL}/> } />
+            <Route exact path='/pokemon/singlePokemon' render={() => <SinglePokeCard pokemonInfo={this.state.pokemonInfo} pokemonURL={this.state.pokemonURL}/> } />
         </Switch>
       </header>
     </div>

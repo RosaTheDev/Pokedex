@@ -1,10 +1,9 @@
 import { render } from "@testing-library/react";
 import React, { Component } from "react";
-import PokeAPI from "../../APICalls/PokemonAPI";
 import PokemonCardAPI from "../../APICalls/PokemonCardAPI";
 import './SinglePokeContainer.css';
 
-class SinglePokemon extends Component {
+class SinglePokemonCard extends Component {
   constructor({pokemonURL}) {
     super()
     this.state = {
@@ -42,4 +41,4 @@ class SinglePokemon extends Component {
 //   )
 // }
 
-export default SinglePokemon;
+export default SinglePokemonCard;
