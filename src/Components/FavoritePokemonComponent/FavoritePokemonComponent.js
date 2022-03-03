@@ -16,7 +16,7 @@ const FavoritePokemon = ({favePoke, grabid, deletedPoke}) => {
               />
           </NavLink>
             <div>
-              <button onClick={() => deletedPoke(poke.name)}> Delete</button>
+              <button className='deleteThatPokemon' onClick={() => deletedPoke(poke.name)}> Delete</button>
             </div>
           </div>
       )
