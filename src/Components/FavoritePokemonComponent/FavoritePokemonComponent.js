@@ -1,8 +1,23 @@
 import React from "react";
+import PokeBalls from "./PokeBalls/PokeBalls";
 
-const FavoritePokemon = () => {
+const FavoritePokemon = ({favePoke}) => {
+  console.log(favePoke)
+    const favPokemons = favePoke.map((poke, index) => {
+      return(
+        <PokeBalls 
+          name={poke.name}
+          key={index}
+        />
+      )
+    })
   return(
-    <h1>this is my favoriote pokemon page</h1>
+    <div>
+      <h1>this is my favoriote pokemon page</h1>
+      {favPokemons}
+
+    </div>
+
   )
 
 }
