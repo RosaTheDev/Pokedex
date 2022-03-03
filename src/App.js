@@ -4,7 +4,7 @@ import './App.css';
 import PokeAPI from './APICalls/PokemonAPI';
 import NavComponent from './Components/NavComponent/NavComponent';
 import PokeContainer from './Components/PokemonComponent/PokemonContainer';
-import SinglePokeCard from './Components/SinglePokemonCard/SinglePokemonCard';
+import SinglePokemonComponent from './Components/SinglePokemonComponent/SinglePokemonComponent';
 
 class App extends Component  {
   constructor() {
@@ -60,7 +60,7 @@ class App extends Component  {
           <Route exact path='/' render={() => <iframe className='poke-trailer' title="Pokemon Song" width="560" height="315" src="https://www.youtube.com/embed/rg6CiPI6h2g?autoplay=1" ></iframe>} />
           <Route exact path='/pokemon' render={() =>  <PokeContainer pokemons={this.state.pokemons} grabid={this.grabTargetURL} pokeball={this.favoritePokemon} changeOffset={this.changeOffset}/>} />
           {!this.state && <h1>Sorry no pokemon here</h1>}
-            <Route exact path='/pokemon/singlePokemon' render={() => <SinglePokeCard pokemonInfo={this.state.pokemonInfo} pokemonURL={this.state.pokemonURL}/> } />
+            <Route exact path='/pokemon/singlePokemon' render={() => <SinglePokemonComponent pokemonInfo={this.state.pokemonInfo} pokemonURL={this.state.pokemonURL}/> } />
         </Switch>
       </header>
     </div>
