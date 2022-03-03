@@ -6,6 +6,7 @@ import NavComponent from './Components/NavComponent/NavComponent';
 import PokeContainer from './Components/PokemonComponent/PokemonContainer';
 import SinglePokemonComponent from './Components/SinglePokemonComponent/SinglePokemonComponent';
 import FavoritePokemon from './Components/FavoritePokemonComponent/FavoritePokemonComponent';
+import LolNotFound from './ErrorNotFound/404NotFound';
 
 class App extends Component  {
   constructor() {
@@ -71,6 +72,7 @@ class App extends Component  {
           <Route exact path='/pokemon' render={() =>  <PokeContainer pokemons={this.state.pokemons} grabid={this.grabTargetURL} pokeball={this.favoritePokemon} changeOffset={this.changeOffset}/>} />
             <Route exact path='/favoritePokemon' render={() => <FavoritePokemon favePoke={this.state.favoritePokemon} grabid={this.grabTargetURL} deletedPoke={this.deletePokemon}/>} />
           <Route exact path='/pokemon/singlePokemon' render={() => <SinglePokemonComponent pokemonInfo={this.state.pokemonInfo} pokemonURL={this.state.pokemonURL}/> } />
+          <Route render={() => <LolNotFound />} />
         </Switch>
       </header>
     </div>
