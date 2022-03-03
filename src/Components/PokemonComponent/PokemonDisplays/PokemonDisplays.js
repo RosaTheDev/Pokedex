@@ -1,7 +1,7 @@
 import React from "react";
-import './PokemonCard.css'
+import './PokemonDisplays.css'
 
-const PokemonCard = ({name, id, grab, url}) => {
+const PokemonDisplays = ({name, id, grab, url}) => {
 
   return(
     <div onClick={() => grab(url)} className="pokemon-card" id={id} >
@@ -11,4 +11,4 @@ const PokemonCard = ({name, id, grab, url}) => {
     </div>
   )
 }
-export default PokemonCard
+export default PokemonDisplays
