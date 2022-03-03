@@ -1,5 +1,5 @@
-const PokemonCardAPI = (id) => {
-  return fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
+const PokemonCardAPI = (url) => {
+  return fetch(url)
   .then(response => response.json())
 }
 
