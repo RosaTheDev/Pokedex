@@ -4,7 +4,6 @@ import PokemonDisplays from './PokemonDisplays/PokemonDisplays'
 import { NavLink } from "react-router-dom";
 
 const PokeContainer = ({pokemons, grabid, pokeball, changeOffset}) => {
-  // console.log(pokemons[0])
   const PokemonDisplay = pokemons.map((pokemon, index) => {
     return(
       <div className='pokeContainer' key={index}>
@@ -17,7 +16,7 @@ const PokeContainer = ({pokemons, grabid, pokeball, changeOffset}) => {
           url={pokemon.url}
           />
         </NavLink>
-          <img onClick={() => pokeball(index)} className='pokeball' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/640px-Pok%C3%A9_Ball_icon.svg.png" alt="pokeball" />
+          <img onClick={() => pokeball(pokemon.name)} className='pokeball' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/640px-Pok%C3%A9_Ball_icon.svg.png" alt="pokeball" />
       </div>
     )
   })

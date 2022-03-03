@@ -10,10 +10,9 @@ class SinglePokemonComponent extends Component {
   constructor({pokemonURL}) {
     super()
     this.state = {
-      pokemonInfo: [],
+      pokemonInfo: null,
       pokemonImg: '',
-      pokeStats: [],
-      pokeType: [],
+     
     }
     this.pokeURL = pokemonURL;
   }
@@ -21,7 +20,7 @@ class SinglePokemonComponent extends Component {
   componentDidMount() {
     PokemonCardAPI(this.pokeURL)
       .then(data => {
-        this.setState({...this.state,  pokemonInfo: data, pokemonImg: data.sprites.other.dream_world.front_default, pokeStats: data.stats, pokeType: data.types})
+        this.setState({...this.state,  pokemonInfo: data, pokemonImg: data.sprites.other.dream_world.front_default})
       })
   }
 
@@ -31,9 +30,7 @@ class SinglePokemonComponent extends Component {
     render() {
       return(
         <div>
-         <PokemonCard pokeInfo={this.state.pokemonInfo} pokeImage={this.state.pokemonImg} /> 
-         {/* <PokeStats stats={this.state.pokeStats}/>
-         <PokeType pokeType={this.state.pokeType} /> */}
+         {this.state.pokemonInfo  && <PokemonCard pokeInfo={this.state.pokemonInfo} pokeImage={this.state.pokemonImg} /> }
 
         </div>
       )

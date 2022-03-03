@@ -1,21 +1,29 @@
 import React from "react";
 import PokeBalls from "./PokeBalls/PokeBalls";
+import { NavLink } from "react-router-dom";
 
-const FavoritePokemon = ({favePoke}) => {
+const FavoritePokemon = ({favePoke, grabid, deletedPoke}) => {
   console.log(favePoke)
     const favPokemons = favePoke.map((poke, index) => {
       return(
-        <PokeBalls 
-          name={poke.name}
-          key={index}
-        />
+        <div className='pokeContainer' key={index}>
+          <NavLink key={index + 1} to="/pokemon/singlePokemon" style={{ color: '#FFF', textDecoration: 'none' }}>
+            <PokeBalls
+              name={poke.name}
+              key={index}
+              grab={grabid}
+              url={poke.url}
+              />
+          </NavLink>
+            <div>
+              <button onClick={() => deletedPoke(poke.name)}> Delete</button>
+            </div>
+          </div>
       )
     })
   return(
-    <div>
-      <h1>this is my favoriote pokemon page</h1>
+    <div className="poke-container">
       {favPokemons}
-
     </div>
 
   )

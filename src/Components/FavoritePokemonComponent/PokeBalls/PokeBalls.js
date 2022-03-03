@@ -1,8 +1,11 @@
 import React from "react";
 
-const PokeBalls = ({name}) => {
+const PokeBalls = ({name, url, grab}) => {
   return(
-    <h1>Name: {name}</h1>
+    <div onClick={() => grab(url)} className="pokemon-card" >
+      <p>Name: {name} </p>
+
+    </div>
   )
 
 }
