@@ -50,16 +50,9 @@ class App extends Component  {
   
   deletePokemon = (pokename) => {
     console.log(pokename)
-    const findme = this.state.favoritePokemon.find(findmepls => pokename === findmepls.name)
+    const findme = this.state.favoritePokemon.filter(findmepls => pokename !== findmepls.name)
     console.log(findme)
-    if (this.state.favoritePokemon.includes(findme)) {
-     console.log('I dont wanna play with you anymore')
-      //  this.setState({ ...this.state, favoritePokemon: [...this.state.favoritePokemon, findme] })
-    } else {
-      console.log('oops you dont have that pokemon')
-    //   this.setState({ ...this.state })
-    }
-
+    this.setState({ favoritePokemon: findme})
     // unfavoriting
     //find the fav pokemon from the fav pokemon array and remove it 
     // and store the new array to a variable name
