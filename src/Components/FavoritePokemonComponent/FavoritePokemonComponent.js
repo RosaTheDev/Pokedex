@@ -6,7 +6,7 @@ const FavoritePokemon = ({favePoke, grabid, deletedPoke}) => {
   console.log(favePoke)
     const favPokemons = favePoke.map((poke, index) => {
       return(
-        <div className='pokeContainer' key={index}>
+        <div className='pokeContainer' key={index}> 
           <NavLink key={index + 1} to="/pokemon/singlePokemon" style={{ color: '#FFF', textDecoration: 'none' }}>
             <PokeBalls
               name={poke.name}
@@ -16,7 +16,7 @@ const FavoritePokemon = ({favePoke, grabid, deletedPoke}) => {
               />
           </NavLink>
             <div>
-              <button className='deleteThatPokemon' onClick={() => deletedPoke(poke.name)}> Delete</button>
+              <button className='deleteThatPokemon' onClick={() => deletedPoke(poke.name)}>Delete</button>
             </div>
           </div>
       )
