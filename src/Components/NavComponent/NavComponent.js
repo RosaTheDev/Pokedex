@@ -1,8 +1,32 @@
-import React from "react";
+import React, {useState} from "react";
 import './NavComponent.css'
 import { NavLink } from "react-router-dom";
 const NavComponent = () => {
   
+  const [home, setHome] = useState(true)  
+  
+  const toggleHome = () => {
+    setHome(!home)
+  }
+
+  const homeButton = () => {
+    return (
+      <NavLink className="home" to={'/'}>
+        <button onClick={toggleHome}>Home</button>
+      </NavLink>
+    )
+  }
+  
+  const pokeDexButton = () => {
+    return (
+      <NavLink className="pokeball-button" to={'/pokemon'}>
+        <img onClick={toggleHome} className='pokeball' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/640px-Pok%C3%A9_Ball_icon.svg.png" alt="pokeball" />
+        <button onClick={toggleHome}>View a list of Pokemon</button>
+      </NavLink>
+    )
+  }
+
+   
   return (
     <div className="nav-container">
       <h1>PokeDex For Beginners!</h1>
@@ -13,14 +37,17 @@ const NavComponent = () => {
             <button>My Pokemon</button>
           </NavLink>
 
+          {home && pokeDexButton()}
+          {!home && homeButton()}
+{/* 
           <NavLink className="home" to={'/'}>
             <button>Home</button>
-          </NavLink>
+          </NavLink> */}
 
-        <NavLink className="pokeball-button" to={'/pokemon'}>
+        {/* <NavLink className="pokeball-button" to={'/pokemon'}>
             <img className='pokeball' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/640px-Pok%C3%A9_Ball_icon.svg.png" alt="pokeball" />
             <button>View a list of Pokemon</button>
-          </NavLink>
+          </NavLink> */}
     </div>
   </div>
     )
