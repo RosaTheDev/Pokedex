@@ -3,7 +3,6 @@ import PokeBalls from "./PokeBalls/PokeBalls";
 import { NavLink } from "react-router-dom";
 
 const FavoritePokemon = ({favePoke, grabid, deletedPoke}) => {
-  console.log(favePoke)
     const favPokemons = favePoke.map((poke, index) => {
       return(
         <div className='pokeContainer' key={index}> 

@@ -2,19 +2,19 @@
   text-align: center;
 }
 
-.iframe-container {
+/* .iframe-container {
   overflow: hidden;
   /* 16:9 aspect ratio */
-  padding-top: 56.25%;
-  position: relative;
-}
-.iframe-container iframe {
+  /* padding-top: 20%; */
+  /* position: relative; */ 
+/* } */
+ iframe {
    border: 0;
-   height: 50vh;
+   height: 60vh;
    left: 0;
-   position: absolute;
+   position: relative;
    top: 0;
-   width: 50vw;
+   width: 90vw;
 }
 
 .App-header {
