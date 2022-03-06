@@ -7,7 +7,6 @@ const PokemonDisplays = ({name, id, grab, url}) => {
     <div onClick={() => grab(url)} className="pokemon-card" id={id} >
       <p>Name: {name} </p>
       <p>Id: {id}</p>
-
     </div>
   )
 }

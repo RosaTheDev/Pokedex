@@ -7,7 +7,7 @@ const PokeContainer = ({pokemons, grabid, pokeball, changeOffset}) => {
   const PokemonDisplay = pokemons.map((pokemon, index) => {
     return(
       <div className='pokeContainer' key={index}>
-        <NavLink  key={index + 1} to="/pokemon/singlePokemon" style={{ color: '#FFF', textDecoration: 'none' }}>
+        <NavLink className='pokelink' key={pokemon.name} to="/pokemon/singlePokemon" style={{ color: '#FFF', textDecoration: 'none' }}>
         <PokemonDisplays
           name={pokemon.name}
           key={index}
