@@ -32,11 +32,9 @@ class App extends Component  {
   favoritePokemon = (pokename) => {
 
     const findme = this.state.pokemons.find(findmepls => pokename === findmepls.name)
-    console.log(findme)
 
 
     if(!this.state.favoritePokemon.includes(findme)){
-      console.log('does not have it')
       this.setState({...this.state, favoritePokemon: [...this.state.favoritePokemon, findme]})
     } else {
       this.setState({...this.state})
@@ -44,7 +42,6 @@ class App extends Component  {
   }
   
   changeOffset = () =>  {
-    console.log(this.state)
     let newOffset = this.state.offset + 21
     this.setState({...this.state,offset: newOffset})
     PokeAPI(this.state.offset)
@@ -53,20 +50,12 @@ class App extends Component  {
   }
   
   deletePokemon = (pokename) => {
-    console.log(pokename)
     const findme = this.state.favoritePokemon.filter(findmepls => pokename !== findmepls.name)
-    console.log(findme)
     this.setState({ favoritePokemon: findme})
-    // unfavoriting
-    //find the fav pokemon from the fav pokemon array and remove it 
-    // and store the new array to a variable name
-    // const unpokemon = this.state.favoritePokemon.splice((id, 1))
-    // this.setState({ ...this.state, favoritePokemon: unpokemon })
   }
   
   
   render() {
-    console.log(this.state)
     return(
     <div className="App">
         <NavComponent />

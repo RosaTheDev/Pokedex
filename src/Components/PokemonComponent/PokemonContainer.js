@@ -6,8 +6,8 @@ import { NavLink } from "react-router-dom";
 const PokeContainer = ({pokemons, grabid, pokeball, changeOffset}) => {
   const PokemonDisplay = pokemons.map((pokemon, index) => {
     return(
-      <div className='pokeContainer' key={index}>
-        <NavLink className='pokelink' key={pokemon.name} to="/pokemon/singlePokemon" style={{ color: '#FFF', textDecoration: 'none' }}>
+      <div className={pokemon.name} key={index}>
+        <NavLink className={pokemon.name} key={pokemon.name} to="/pokemon/singlePokemon" style={{ color: '#FFF', textDecoration: 'none' }}>
         <PokemonDisplays
           name={pokemon.name}
           key={index}

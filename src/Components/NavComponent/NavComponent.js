@@ -6,10 +6,12 @@ const NavComponent = () => {
   const [home, setHome] = useState(true)  
   
   const toggleHome = () => {
+    
     setHome(!home)
   }
 
   const homeButton = () => {
+
     return (
       <NavLink className="home" to={'/'}>
         <button onClick={toggleHome}>Home</button>
@@ -18,6 +20,7 @@ const NavComponent = () => {
   }
   
   const pokeDexButton = () => {
+
     return (
       <NavLink className="pokeball-button" to={'/pokemon'}>
         <img onClick={toggleHome} className='pokeball' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/640px-Pok%C3%A9_Ball_icon.svg.png" alt="pokeball" />
@@ -39,15 +42,6 @@ const NavComponent = () => {
 
           {home && pokeDexButton()}
           {!home && homeButton()}
-{/* 
-          <NavLink className="home" to={'/'}>
-            <button>Home</button>
-          </NavLink> */}
-
-        {/* <NavLink className="pokeball-button" to={'/pokemon'}>
-            <img className='pokeball' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/640px-Pok%C3%A9_Ball_icon.svg.png" alt="pokeball" />
-            <button>View a list of Pokemon</button>
-          </NavLink> */}
     </div>
   </div>
     )
