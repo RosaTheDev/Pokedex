@@ -20,8 +20,9 @@ class App extends Component  {
   }
 
   componentDidMount = () => {
-    PokeAPI(this.state.offset)
-    .then(data => this.setState({...this.state, pokemons: [...this.state.pokemons, ...data.results]}))   
+    PokeAPI()
+    .then(data => this.setState({...this.state, pokemons: [...this.state.pokemons, ...data.results]}))
+    .then(this.setState({...this.state, offset: 21}))
   }
 
   grabTargetURL = (url) =>  {
@@ -44,9 +45,11 @@ class App extends Component  {
   
   changeOffset = () =>  {
     console.log(this.state)
-    // let newOffset = this.state.offset + 21
-    this.setState({...this.state, offset: 21})
-    // PokeAPI(this.state.offset)
+    let newOffset = this.state.offset + 21
+    this.setState({...this.state,offset: newOffset})
+    PokeAPI(this.state.offset)
+      .then(data => this.setState({ ...this.state, pokemons: [...this.state.pokemons, ...data.results] }))   
+
   }
   
   deletePokemon = (pokename) => {
@@ -63,12 +66,13 @@ class App extends Component  {
   
   
   render() {
+    console.log(this.state)
     return(
     <div className="App">
         <NavComponent />
       <header className="App-header">
         <Switch>
-          <Route exact path='/' render={() => <iframe className='poke-trailer' title="Pokemon Song" width="560" height="315" src="https://www.youtube.com/embed/rg6CiPI6h2g?autoplay=1" ></iframe>} />
+          <Route exact path='/' render={() => <iframe className='poke-trailer' title="Pokemon Song"  src="https://www.youtube.com/embed/rg6CiPI6h2g?autoplay=1" ></iframe>} />
           <Route exact path='/pokemon' render={() =>  <PokeContainer pokemons={this.state.pokemons} grabid={this.grabTargetURL} pokeball={this.favoritePokemon} changeOffset={this.changeOffset}/>} />
             <Route exact path='/favoritePokemon' render={() => <FavoritePokemon favePoke={this.state.favoritePokemon} grabid={this.grabTargetURL} deletedPoke={this.deletePokemon}/>} />
           <Route exact path='/pokemon/singlePokemon' render={() => <SinglePokemonComponent pokemonInfo={this.state.pokemonInfo} pokemonURL={this.state.pokemonURL}/> } />
