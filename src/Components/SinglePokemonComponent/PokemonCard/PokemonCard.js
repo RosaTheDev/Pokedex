@@ -26,6 +26,52 @@ const PokemonCard = ({pokeInfo, pokeImage}) => {
 
 export default PokemonCard;
 PokemonCard.propTypes = {
-  pokeInfo: PropTypes.object,
+  pokeInfo: PropTypes.objectOf(PropTypes.shape({
+    abilities: PropTypes.array,
+    base_experience: PropTypes.number,
+    forms: PropTypes.array,
+    game_indicies: PropTypes.array,
+    height: PropTypes.number,
+    id: PropTypes.number,
+    is_default: PropTypes.boolean,
+    location_area_encounters: PropTypes.strings,
+    moves: PropTypes.array,
+    name: PropTypes.string,
+    order: PropTypes.number,
+    past_types: PropTypes.array,
+    species: PropTypes.objectOf(PropTypes.shape({
+      name: PropTypes.string,
+      url: PropTypes.string
+    })),
+    sprites: PropTypes.objectOf(PropTypes.shape({
+      back_default: PropTypes.string,
+      back_female: PropTypes.string,
+      back_shiny: PropTypes.string,
+      back_shiny_female: PropTypes.string,
+      front_default: PropTypes.string,
+      front_female: PropTypes.string,
+      front_shiny: PropTypes.string,
+      front_shiny_female: PropTypes.string,
+      other: PropTypes.objectOf(PropTypes.shape({
+        dream_world: PropTypes.objectOf(PropTypes.shape({
+          front_default: PropTypes.string,
+          front_female: PropTypes.null
+        })),
+        home: PropTypes.objectOf(PropTypes.shape({
+          front_default: PropTypes.string,
+          front_female: PropTypes.string,
+          front_shiny: PropTypes.string,
+          front_shiny_female: PropTypes.string
+        })),
+        offical_artwork: PropTypes.objectOf(PropTypes.shape({
+          front_default: PropTypes.string,
+        }))
+      })),
+      versions: PropTypes.object
+    })),
+    stats: PropTypes.array,
+    types: PropTypes.arary,
+    weight: PropTypes.number
+  })),
   pokeImage: PropTypes.string
 }
