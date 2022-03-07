@@ -1,9 +1,7 @@
-import { render } from "@testing-library/react";
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import PokemonCardAPI from "../../APICalls/PokemonCardAPI";
 import PokemonCard from "./PokemonCard/PokemonCard";
-// import PokeStats from "./PokemonCard/PokemonSpecsContainer/PokeStats";
-// import PokeType from "./PokemonCard/PokemonSpecsContainer/PokeType";
 import './SinglePokemonComponent.css';
 
 class SinglePokemonComponent extends Component {
@@ -39,3 +37,6 @@ class SinglePokemonComponent extends Component {
 
 
 export default SinglePokemonComponent;
+SinglePokemonComponent.propTypes = {
+  pokemonURL: PropTypes.string
+}
