@@ -2,6 +2,11 @@ import React from "react";
 import './PokemonContainer.css';
 import PokemonDisplays from './PokemonDisplays/PokemonDisplays'
 import { NavLink } from "react-router-dom";
+import PropTypes from 'prop-types';
+
+
+
+
 
 const PokeContainer = ({pokemons, grabid, pokeball, changeOffset}) => {
   const PokemonDisplay = pokemons.map((pokemon, index) => {
@@ -30,3 +35,9 @@ const PokeContainer = ({pokemons, grabid, pokeball, changeOffset}) => {
 
 
 export default PokeContainer;
+PokeContainer.propTypes = {
+  pokemons: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    url: PropTypes.string
+  }))
+}

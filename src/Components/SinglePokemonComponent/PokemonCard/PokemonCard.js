@@ -1,7 +1,6 @@
 import React from "react";
 import './PokemonCard.css'
 const PokemonCard = ({pokeInfo, pokeImage}) => {
-  console.log(pokeInfo)
   return(
     <div className={pokeInfo.types[0].type.name}>
       <h1 className="PokemonCard">Name: {pokeInfo.name}</h1>
