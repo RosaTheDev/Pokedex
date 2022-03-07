@@ -1,5 +1,7 @@
 # PokeDex
 A Pokedex app for beginners, you can view pokemon, favorite them in your pokedex, and enjoy nostalgia 
+ 
+Try It out: [PokeDex](https://pokedex-murex-ten.vercel.app/)
 
 ![intro](https://media2.giphy.com/media/vsyKKf1t22nmw/giphy.gif?cid=ecf05e476huqp9tfaola1nojqklkhapyepn7opj0yrw8nahy&rid=giphy.gif&ct=g)
 ---
@@ -12,7 +14,6 @@ A Pokedex app for beginners, you can view pokemon, favorite them in your pokedex
 [Contributors](#contributors) | 
 
 ---
-
 ### Summary 
 A Pokedex app for beginners, you can view pokemon, favorite them in your pokedex, and enjoy nostalgia 
 
