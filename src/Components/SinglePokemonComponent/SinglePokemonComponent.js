@@ -29,7 +29,6 @@ class SinglePokemonComponent extends Component {
       return(
         <div>
          {this.state.pokemonInfo  && <PokemonCard pokeInfo={this.state.pokemonInfo} pokeImage={this.state.pokemonImg} /> }
-
         </div>
       )
     }

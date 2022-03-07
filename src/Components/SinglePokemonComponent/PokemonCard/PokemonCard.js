@@ -1,6 +1,9 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import './PokemonCard.css'
+
 const PokemonCard = ({pokeInfo, pokeImage}) => {
+  console.log(typeof pokeInfo)
   return(
     <div className={pokeInfo.types[0].type.name}>
       <h1 className="PokemonCard">Name: {pokeInfo.name}</h1>
@@ -22,3 +25,7 @@ const PokemonCard = ({pokeInfo, pokeImage}) => {
 }
 
 export default PokemonCard;
+PokemonCard.propTypes = {
+  pokeInfo: PropTypes.object,
+  pokeImage: PropTypes.string
+}
